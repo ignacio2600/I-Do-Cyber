@@ -1,5 +1,5 @@
 /* THE DARK JUNGLE MASTER STYLESHEET 
-    Version: 3.7
+    Version: 3.8 - Symmetry & Typewriter Update
 */
 
 /* --- 1. GLOBAL SETTINGS --- */
@@ -29,6 +29,19 @@ body {
 }
 
 .nav-left, .nav-right { flex: 1; }
+
+/* The ThinkPad Symmetry: Matching nav-left to search placeholder */
+.nav-left, .nav-left a { 
+    color: #888888; 
+    text-decoration: none; 
+    transition: all 0.3s ease;
+}
+
+.nav-left a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
 .nav-center {
     flex: 2;
     text-align: center;
@@ -36,9 +49,10 @@ body {
     font-weight: bold;
     font-size: 1.1em;
     letter-spacing: 2px;
+    min-height: 1.2em; /* Prevents layout jump during typing */
 }
+
 .nav-right { text-align: right; }
-.nav-left a { color: #8888ee; text-decoration: none; }
 
 .nav-search {
     background-color: #000;
@@ -47,6 +61,12 @@ body {
     padding: 5px 10px;
     font-family: 'Courier New', Courier, monospace;
     outline: none;
+}
+
+/* Forces the search placeholder to match our nav-left gray */
+.nav-search::placeholder {
+    color: #888888;
+    opacity: 1;
 }
 
 /* --- 3. THE GRID (HOMEPAGE) --- */
@@ -81,10 +101,8 @@ ul {
     list-style: none;
     padding: 0;
     margin: 10px 0 0 0;
-    
-    /* SCROLL LOGIC */
-    max-height: 120px;    /* Locks height to about 4-5 links */
-    overflow-y: auto;     /* Adds scrollbar ONLY when content overflows */
+    max-height: 120px;
+    overflow-y: auto;
     padding-right: 5px;
 }
 
@@ -152,9 +170,10 @@ pre::before {
 }
 code { font-family: 'Courier New', Courier, monospace; }
 strong { color: #ffffff; }
-/* The blinking cursor effect */
+
+/* --- 7. ANIMATIONS --- */
 .cursor {
-    border-right: 2px solid #00ff00; /* Matches your green theme */
+    border-right: 2px solid #00ff00;
     margin-left: 5px;
     animation: blink 0.75s step-end infinite;
 }
