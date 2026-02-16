@@ -1,4 +1,4 @@
-/* The Dark Jungle Theme v2.0 */
+/* The Dark Jungle Theme v3.0 */
 body {
     background-color: #000000;
     color: #b0b0b0;
@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-bottom: 1px solid #333;
     background-color: #1a1a1a;
 }
@@ -24,27 +24,38 @@ body {
     letter-spacing: 2px;
 }
 
-.nav-left a, .nav-right a {
+.nav-left a {
     color: #8888ee;
     text-decoration: none;
 }
 
-.nav-left a:hover, .nav-right a:hover {
-    text-decoration: underline;
+/* New Search Bar Style */
+.nav-search {
+    background-color: #000;
+    border: 1px solid #444;
+    color: #8888ee;
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    outline: none;
+}
+
+.nav-search:focus {
+    border-color: #8888ee;
+    color: #fff;
 }
 
 /* Main Content Grid */
 .grid-content {
     display: grid;
-    /* This automatically creates columns and wraps them for mobile */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 40px;
     padding: 50px 20px;
-    max-width: 1200px; /* Keeps columns closer on wide screens */
-    margin: 0 auto;    /* Centers the whole grid */
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
-/* Column Headers - Underline Style */
+/* Column Headers */
 .cl-column h2 {
     background-color: transparent;
     color: #d1d1d1;
@@ -54,11 +65,10 @@ body {
     text-transform: lowercase;
 }
 
-/* The ASCII Underline (======) */
 .cl-column h2::after {
     content: "====================";
     display: block;
-    color: #444; /* Subtle gray for the line */
+    color: #444;
     font-size: 0.8em;
     margin-top: -2px;
     overflow: hidden;
@@ -79,7 +89,6 @@ li a {
     text-decoration: none;
     color: #8888ee;
     font-size: 0.95em;
-    transition: color 0.2s;
 }
 
 li a:hover {
