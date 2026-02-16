@@ -130,7 +130,7 @@
             <ul>
                 <li><a href="#" class="copyable">recon workflow</a></li>
                 <li><a href="#" class="copyable">owasp top 10</a></li>
-                <li><a href="#" class="copyable">dorking for dollars</a></li>
+                <li><a href="google-dorking.html">dorking for dollars</a></li>
                 <li><a href="#" class="copyable">bounty reporting</a></li>
             </ul>
         </section>
@@ -186,6 +186,11 @@
         </section>
     </main>
 
+    <footer class="jungle-footer">
+        <div class="divider">=======================================================</div>
+        <p>LAST_UPDATED: 2026-02-16 10:14:22 | SYSTEM: ONLINE</p>
+    </footer>
+
     <script>
         // --- QUOTE ENGINE ---
         const quotes = [
@@ -204,17 +209,21 @@
         // --- COPY TO CLIPBOARD ENGINE ---
         document.querySelectorAll('.copyable').forEach(item => {
             item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const text = this.innerText;
-                navigator.clipboard.writeText(text).then(() => {
-                    const originalText = this.innerText;
-                    this.innerText = "COPIED!";
-                    this.style.color = "#ffffff";
-                    setTimeout(() => {
-                        this.innerText = originalText;
-                        this.style.color = "#8888ee";
-                    }, 800);
-                });
+                // If it's a real external link (like openstax), let it open. 
+                // Otherwise, copy text and prevent default jump.
+                if (this.getAttribute('href') === "#") {
+                    e.preventDefault();
+                    const text = this.innerText;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const originalText = this.innerText;
+                        this.innerText = "COPIED!";
+                        this.style.color = "#ffffff";
+                        setTimeout(() => {
+                            this.innerText = originalText;
+                            this.style.color = "#8888ee";
+                        }, 800);
+                    });
+                }
             });
         });
     </script>
