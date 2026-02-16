@@ -120,3 +120,64 @@ li a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+/* Note Page Layout */
+.note-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.note-header h1 {
+    color: #ffffff;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.metadata {
+    font-size: 0.85em;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+.note-content {
+    color: #b0b0b0;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.note-content h3 {
+    color: #d1d1d1;
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
+
+/* Code Block Styling */
+pre {
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+    padding: 20px;
+    color: #8888ee;
+    overflow-x: auto;
+    position: relative;
+    margin: 20px 0;
+}
+
+pre::before {
+    content: "CODE_INPUT";
+    display: block;
+    font-size: 0.7em;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #222;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+strong {
+    color: #ffffff;
+}
