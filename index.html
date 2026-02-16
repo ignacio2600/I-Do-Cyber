@@ -9,8 +9,11 @@
 <body>
 
     <nav class="top-nav">
-        <div class="nav-left">
-            <a href="#">jungle</a> > <a href="#">about</a> > <b>help</b>
+      <div class="nav-left">
+    <a href="index.html">jungle</a> > 
+    <a href="about.html">about</a> > 
+    <a href="https://github.com/MyCyberNotes/I-Do-Cyber/discussions" target="_blank" style="color: #ffffff; text-shadow: 0 0 5px #8888ee;">community</a>
+</div>
         </div>
         <div class="nav-center" id="jungle-quote">WELCOME TO THE JUNGLE</div>
         <div class="nav-right">
@@ -83,23 +86,55 @@
         <div class="divider">=======================================================</div>
         <p>LAST_UPDATED: 2026-02-16 10:14:22 | SYSTEM: ONLINE</p>
     </footer>
+<script>
+    // --- 1. THE TYPEWRITER QUOTE ENGINE ---
+    const quotes = [
+        "WELCOME TO THE JUNGLE", "HACK THE PLANET", "STAY PARANOID",
+        "INFORMATION WANTS TO BE FREE", "ROOT@JUNGLE:~#", 
+        "SYSTEM_STATUS: OPERATIONAL", "ENCRYPT_EVERYTHING", 
+        "INITIALIZING NEURAL LINK...", "SEEK THE TRUTH IN THE CODE"
+    ];
 
-    <script>
-        const quotes = ["WELCOME TO THE JUNGLE", "HACK THE PLANET", "THE JUNGLE IS WATCHING", "INFORMATION WANTS TO BE FREE", "IN CODE WE TRUST", "THE QUIETER YOU BECOME, THE MORE YOU HEAR", "ROOT@JUNGLE:~#", "SYSTEM_STATUS: OPERATIONAL", "STAY PARANOID"];
-        document.getElementById('jungle-quote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    function typeWriter(text, i, fnCallback) {
+        if (i < text.length) {
+            document.getElementById("jungle-quote").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true" class="cursor"></span>';
+            setTimeout(function() {
+                typeWriter(text, i + 1, fnCallback)
+            }, 100); // Speed of typing (100ms per character)
+        } else if (typeof fnCallback == 'function') {
+            setTimeout(fnCallback, 2000); // Pause at the end
+        }
+    }
 
-        document.querySelectorAll('.copyable').forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === "#") {
-                    e.preventDefault();
-                    navigator.clipboard.writeText(this.innerText).then(() => {
-                        const originalText = this.innerText;
-                        this.innerText = "COPIED!";
-                        setTimeout(() => { this.innerText = originalText; }, 800);
-                    });
-                }
-            });
+    function updateQuote() {
+        const quoteElement = document.getElementById('jungle-quote');
+        const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        
+        // Clear current text and start typing
+        quoteElement.innerHTML = '';
+        typeWriter(newQuote, 0);
+    }
+
+    // Run every 3 minutes
+    setInterval(updateQuote, 180000);
+    // Initialize first quote
+    updateQuote();
+
+
+    // --- 2. COPY-TO-CLIPBOARD LOGIC ---
+    document.querySelectorAll('.copyable').forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (this.getAttribute('href') === "#") {
+                e.preventDefault();
+                navigator.clipboard.writeText(this.innerText).then(() => {
+                    const originalText = this.innerText;
+                    this.innerText = "COPIED!";
+                    setTimeout(() => { this.innerText = originalText; }, 800);
+                });
+            }
         });
-    </script>
+    });
+</script>
+   
 </body>
 </html>
