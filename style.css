@@ -1,21 +1,71 @@
-/* Ensure the foundation is solid */
+/* The Dark Jungle Theme v3.4 */
+
+/* 1. Global Reset & Persistence of Black */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Force black at the root */
+    background-color: #000000; /* No gray at the bottom */
 }
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Minimum height is the full screen */
-    background-color: #000000;
+    min-height: 100vh;
     color: #b0b0b0;
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Allow the grid to take up all available vertical space */
+/* 2. Navigation - Fixed Alignment */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+    background-color: #1a1a1a;
+}
+
+.nav-left, .nav-right {
+    flex: 1; /* These maintain the balance for the center greeting */
+}
+
+.nav-center {
+    flex: 2;
+    text-align: center;
+    color: #d1d1d1;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+.nav-right {
+    text-align: right;
+}
+
+.nav-left a {
+    color: #8888ee; /* High readability blue */
+    text-decoration: none;
+}
+
+/* 3. Search Bar - Stealth Mode */
+.nav-search {
+    background-color: #000;
+    border: 1px solid #444;
+    color: #b0b0b0; /* Gray letters */
+    padding: 5px 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    outline: none;
+    width: 200px;
+}
+
+.nav-search:focus {
+    border-color: #8888ee;
+    color: #ffffff;
+}
+
+/* 4. Main Grid */
 .grid-content {
     flex-grow: 1; 
     display: grid;
@@ -24,5 +74,49 @@ body {
     padding: 50px 20px;
     max-width: 1250px;
     margin: 0 auto;
-    background-color: #000000;
+}
+
+/* 5. Topics - Centered with Underlines */
+.cl-column {
+    text-align: center;
+}
+
+.cl-column h2 {
+    color: #d1d1d1;
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    text-transform: lowercase;
+}
+
+.cl-column h2::after {
+    content: "====================";
+    display: block;
+    color: #444;
+    font-size: 0.8em;
+    margin-top: -2px;
+    overflow: hidden;
+}
+
+/* 6. Link Lists - High Readability */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+li a {
+    text-decoration: none;
+    color: #8888ee; /* Restored original color */
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
 }
