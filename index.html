@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyCyberNotes | Bug Bounty Mastery</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ensures the lines stretch to the container width */
+        .protocol-border {
+            border-top: 1px solid #444;
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body class="jungle-theme">
     <nav class="top-nav">
@@ -19,40 +27,290 @@
                 </div>
             </div>
         </div>
+        
         <div class="nav-center" id="jungle-quote">WELCOME TO THE JUNGLE</div>
+        
         <div class="nav-right">
-            <input type="text" placeholder="search the jungle..." class="nav-search">
+            <form action="#" class="search-form" onsubmit="return false;">
+                <input type="text" placeholder="search the jungle..." class="nav-search">
+            </form>
         </div>
     </nav>
-
+    
     <main class="grid-content">
-        <div class="security-posture" style="grid-column: 1 / -1; margin-bottom: 30px;">
-            <div class="divider" style="color: #444; letter-spacing: 2px;">------------------------------------------------------------------------</div>
-            <p class="posture-text" style="font-family: 'Courier New', monospace; font-size: 0.9em; color: #aaa; margin: 10px 0;">
+        <div class="security-posture" style="grid-column: 1 / -1; margin-bottom: 30px; width: 100%;">
+            <div class="protocol-border"></div>
+            <p class="posture-text" style="font-family: 'Courier New', monospace; font-size: 0.9em; color: #aaa; margin: 15px 0;">
                 <span class="status-active" style="color: #ff3e3e; font-weight: bold;">[POSTURE: SELECTIVE_DISCLOSURE]</span> — 
-                We disclose the <span class="highlight" style="color: #fff; font-weight: bold; text-decoration: underline;">"How"</span> to empower the community, but redact the "Who" and "Where" to maintain absolute operational security.
+                We disclose the "How" to empower the community, but redact the "Who" and "Where" to maintain absolute operational security.
             </p>
-            <div class="divider" style="color: #444; letter-spacing: 2px;">------------------------------------------------------------------------</div>
+            <div class="protocol-border"></div>
         </div>
 
-        <section class="cl-column"><h2>01_networking</h2><ul><li><a href="#" class="copyable">osi model layers</a></li><li><a href="#" class="copyable">dns resolution</a></li></ul></section>
-        </main>
+        <section class="cl-column">
+            <h2>01_networking</h2>
+            <ul>
+                <li><a href="#" class="copyable">osi model layers</a></li>
+                <li><a href="#" class="copyable">dns resolution</a></li>
+                <li><a href="#" class="copyable">tcp/udp handshakes</a></li>
+                <li><a href="#" class="copyable">ip addressing</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>02_web_dev</h2>
+            <ul>
+                <li><a href="#" class="copyable">html5/css3 basics</a></li>
+                <li><a href="#" class="copyable">dom manipulation</a></li>
+                <li><a href="#" class="copyable">client-side js</a></li>
+                <li><a href="#" class="copyable">responsive design</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>03_unix_cli</h2>
+            <ul>
+                <li><a href="#" class="copyable">filesystem navigation</a></li>
+                <li><a href="#" class="copyable">permissions & chmod</a></li>
+                <li><a href="#" class="copyable">bash scripting</a></li>
+                <li><a href="#" class="copyable">process management</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>04_python_automation</h2>
+            <ul>
+                <li><a href="#" class="copyable">requests library</a></li>
+                <li><a href="#" class="copyable">beautifulsoup scrapers</a></li>
+                <li><a href="#" class="copyable">custom brute-forcers</a></li>
+                <li><a href="#" class="copyable">api interaction</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>05_legal_&_ethics</h2>
+            <ul>
+                <li><a href="#" class="copyable">cfaa compliance</a></li>
+                <li><a href="#" class="copyable">safe harbor clauses</a></li>
+                <li><a href="#" class="copyable">responsible disclosure</a></li>
+                <li><a href="#" class="copyable">ethical hacking laws</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>06_recon_&_osint</h2>
+            <ul>
+                <li><a href="google-dorking.html">google dorking</a></li>
+                <li><a href="#" class="copyable">subdomain enumeration</a></li>
+                <li><a href="#" class="copyable">github search leaks</a></li>
+                <li><a href="#" class="copyable">whois analysis</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>07_burp_mastery</h2>
+            <ul>
+                <li><a href="#" class="copyable">intercepting traffic</a></li>
+                <li><a href="#" class="copyable">repeater vs intruder</a></li>
+                <li><a href="#" class="copyable">extender plugins</a></li>
+                <li><a href="#" class="copyable">decoder tools</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>08_owasp_top_10_pt1</h2>
+            <ul>
+                <li><a href="#" class="copyable">broken access control</a></li>
+                <li><a href="#" class="copyable">cryptographic failure</a></li>
+                <li><a href="#" class="copyable">injection attacks</a></li>
+                <li><a href="#" class="copyable">insecure design</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>09_owasp_top_10_pt2</h2>
+            <ul>
+                <li><a href="#" class="copyable">security misconfig</a></li>
+                <li><a href="#" class="copyable">vulnerable components</a></li>
+                <li><a href="#" class="copyable">auth failures</a></li>
+                <li><a href="#" class="copyable">ssrf techniques</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>10_xss_attacks</h2>
+            <ul>
+                <li><a href="#" class="copyable">stored vs reflected</a></li>
+                <li><a href="#" class="copyable">dom-based xss</a></li>
+                <li><a href="#" class="copyable">payload crafting</a></li>
+                <li><a href="#" class="copyable">filter bypassing</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>11_api_pentesting</h2>
+            <ul>
+                <li><a href="#" class="copyable">rest/graphql testing</a></li>
+                <li><a href="#" class="copyable">idors discovery</a></li>
+                <li><a href="#" class="copyable">jwt manipulation</a></li>
+                <li><a href="#" class="copyable">rate limiting bypass</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>12_cloud_security</h2>
+            <ul>
+                <li><a href="#" class="copyable">aws s3 misconfig</a></li>
+                <li><a href="#" class="copyable">azure blob hunting</a></li>
+                <li><a href="#" class="copyable">iam policy bypass</a></li>
+                <li><a href="#" class="copyable">gcp bucket leaks</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>13_mobile_pentesting</h2>
+            <ul>
+                <li><a href="#" class="copyable">apk de-compilation</a></li>
+                <li><a href="#" class="copyable">static code analysis</a></li>
+                <li><a href="#" class="copyable">burp mobile proxy</a></li>
+                <li><a href="#" class="copyable">owasp masvs</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>14_source_code_audit</h2>
+            <ul>
+                <li><a href="#" class="copyable">secret scanning</a></li>
+                <li><a href="#" class="copyable">finding sinkholes</a></li>
+                <li><a href="#" class="copyable">logic flaw detection</a></li>
+                <li><a href="#" class="copyable">sast vs dast tools</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>15_toolkit_lab</h2>
+            <ul>
+                <li><a href="#" class="copyable">vps setup (openbsd)</a></li>
+                <li><a href="#" class="copyable">auto-recon pipelines</a></li>
+                <li><a href="#" class="copyable">discord/slack notify</a></li>
+                <li><a href="#" class="copyable">custom bash scripts</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>16_reporting</h2>
+            <ul>
+                <li><a href="#" class="copyable">cvss 3.1 scoring</a></li>
+                <li><a href="#" class="copyable">writing impact statements</a></li>
+                <li><a href="#" class="copyable">reproducible steps</a></li>
+                <li><a href="#" class="copyable">professional templates</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>17_the_program_pick</h2>
+            <ul>
+                <li><a href="https://portswigger.net/web-security" target="_blank">portswigger academy</a></li>
+                <li><a href="https://www.hacker101.com/" target="_blank">hacker101 labs</a></li>
+                <li><a href="https://hackerone.com/deptofdefense" target="_blank">dod vdp (beginner)</a></li>
+                <li><a href="https://owasp.org/www-project-juice-shop/" target="_blank">owasp juice shop</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>18_consulting_biz</h2>
+            <ul>
+                <li><a href="#" class="copyable">llc registration</a></li>
+                <li><a href="#" class="copyable">invoicing & payments</a></li>
+                <li><a href="#" class="copyable">contract writing</a></li>
+                <li><a href="#" class="copyable">liability insurance</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>19_the_sales_pitch</h2>
+            <ul>
+                <li><a href="#" class="copyable">cold email templates</a></li>
+                <li><a href="#" class="copyable">risk mitigation talk</a></li>
+                <li><a href="#" class="copyable">roi for security</a></li>
+                <li><a href="#" class="copyable">referral strategies</a></li>
+            </ul>
+        </section>
+
+        <section class="cl-column">
+            <h2>20_resilience</h2>
+            <ul>
+                <li><a href="#" class="copyable">handling duplicates</a></li>
+                <li><a href="#" class="copyable">dealing with n/a</a></li>
+                <li><a href="#" class="copyable">burnout prevention</a></li>
+                <li><a href="#" class="copyable">career longevity</a></li>
+            </ul>
+        </section>
+    </main>
 
     <footer class="jungle-footer">
-        <div class="divider">========================================================================</div>
+        <div class="divider" style="border-top: 2px solid #444; margin: 20px 0;"></div>
         <p>LAST_UPDATED: 2026-02-17 | SYSTEM: ONLINE | KERNEL: OPENBSD 7.8</p>
     </footer>
 
     <script>
-        function toggleMenu() { document.getElementById("myDropdown").classList.toggle("show"); }
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) { openDropdown.classList.remove('show'); }
-                }
+        /* --- 1. THE TYPEWRITER LOGIC --- */
+        const quotes = [
+            "WELCOME TO THE JUNGLE", "HACK THE PLANET", "STAY PARANOID",
+            "INFORMATION WANTS TO BE FREE", "ROOT@JUNGLE:~#", 
+            "SYSTEM_STATUS: OPERATIONAL", "ENCRYPT_EVERYTHING", 
+            "INITIALIZING NEURAL LINK...", "SEEK THE TRUTH IN THE CODE"
+        ];
+
+        function typeWriter(text, i, fnCallback) {
+            if (i < text.length) {
+                document.getElementById("jungle-quote").innerHTML = text.substring(0, i+1) +'<span aria-hidden="true" class="cursor"></span>';
+                setTimeout(function() { typeWriter(text, i + 1, fnCallback) }, 100); 
+            } else {
+                document.getElementById("jungle-quote").innerHTML = text;
+                if (typeof fnCallback == 'function') { setTimeout(fnCallback, 2000); }
             }
+        }
+
+        function updateQuote() {
+            const quoteElement = document.getElementById('jungle-quote');
+            const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteElement.innerHTML = '';
+            typeWriter(newQuote, 0);
+        }
+        setInterval(updateQuote, 180000);
+        updateQuote();
+
+        /* --- 2. THE CLIPBOARD LOGIC --- */
+        document.querySelectorAll('.copyable').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const destination = this.getAttribute('href');
+                if (destination === "#" || !destination) {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(this.innerText).then(() => {
+                        const originalText = this.innerText;
+                        this.innerText = "COPIED!";
+                        setTimeout(() => { this.innerText = originalText; }, 800);
+                    });
+                }
+            });
+        });
+
+        /* --- 3. THE STICKY DIRECTORY LOGIC --- */
+        function toggleMenu() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
         }
     </script>
 </body>
