@@ -2,9 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    /* Unifies the background to prevent the gray gap issue */
     background-color: #0a0a0a; 
-    /* Prevents horizontal scrolling into empty space */
     overflow-x: hidden; 
     min-height: 100vh;
 }
@@ -53,8 +51,6 @@ body {
     font-family: inherit;
 }
 
-.nav-search::placeholder { color: #888; }
-
 /* --- 3. THE ROADMAP GRID --- */
 .grid-content { 
     flex-grow: 1; 
@@ -86,7 +82,6 @@ body {
 /* --- 4. THE SCROLLING LISTS --- */
 ul { list-style: none; max-height: 150px; overflow-y: auto; padding-right: 5px; }
 
-/* Custom Scrollbar */
 ul::-webkit-scrollbar { width: 4px; }
 ul::-webkit-scrollbar-track { background: #050505; }
 ul::-webkit-scrollbar-thumb { background: #222; }
@@ -95,7 +90,7 @@ ul::-webkit-scrollbar-thumb:hover { background: #58a6ff; }
 li { margin-bottom: 8px; }
 li a { 
     text-decoration: none; 
-    color: #58a6ff; /* GitHub Blue */
+    color: #58a6ff; 
     font-size: 0.9em; 
     transition: 0.2s; 
 }
@@ -105,9 +100,14 @@ li a:hover {
     text-decoration: underline; 
 }
 
-/* --- 5. FOOTER --- */
-.jungle-footer { text-align: center; padding: 40px 20px; font-size: 0.75em; color: #444; }
-.divider { margin-bottom: 10px; letter-spacing: 1px; color: #222; }
+/* --- 5. FOOTER (With Breathing Room) --- */
+.jungle-footer { 
+    text-align: center; 
+    padding: 60px 20px; /* Increased padding for breathing room */
+    font-size: 0.75em; 
+    color: #444; 
+}
+.divider { margin-bottom: 15px; letter-spacing: 1px; color: #222; }
 
 /* --- 6. TYPEWRITER CURSOR --- */
 .cursor { border-left: .1em solid #58a6ff; margin-left: 3px; animation: blink .7s infinite; }
