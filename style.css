@@ -112,3 +112,70 @@ li a:hover {
 /* --- 6. TYPEWRITER CURSOR --- */
 .cursor { border-left: .1em solid #58a6ff; margin-left: 3px; animation: blink .7s infinite; }
 @keyframes blink { from, to { border-color: transparent } 50% { border-color: #58a6ff; } }
+
+/* --- 7. LIBRARY CARD CATALOG --- */
+.card-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.library-card {
+    background-color: #0f0f0f; /* Slightly lighter than body for depth */
+    border: 1px solid #222;
+    width: 320px;
+    height: 220px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 4px 4px 0px #58a6ff; /* GitHub Blue shadow */
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.library-card:hover {
+    transform: translateY(-5px);
+    border-color: #58a6ff;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7em;
+    color: #58a6ff;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.library-card h3 {
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.library-card p {
+    font-size: 0.8em;
+    color: #aaa;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.punch-hole {
+    width: 16px;
+    height: 16px;
+    background-color: #0a0a0a; /* Matches the main body background */
+    border: 1px solid #333;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
