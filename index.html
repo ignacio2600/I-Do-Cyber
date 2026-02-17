@@ -68,6 +68,27 @@
             card.classList.toggle('active');
             button.innerText = card.classList.contains('active') ? "CLOSE_LOG" : "READ_LOG";
         }
+        // ========================================================================
+// UI: DIRECTORY DROPDOWN (The Missing Engine)
+// ========================================================================
+function toggleMenu() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// ========================================================================
+// UI: GLOBAL CLICK HANDLER (Closes menu if you click away)
+// ========================================================================
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
 
         // ========================================================================
         // UI: GLOBAL CLICK HANDLER
