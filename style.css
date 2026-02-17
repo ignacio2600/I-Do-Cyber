@@ -1,5 +1,5 @@
 /* ========================================================================
-   KERNEL: SYSTEM_VARIABLES & RESET
+   KERNEL: SYSTEM_VARIABLES & GLOBAL_RESET
 ========================================================================= */
 :root {
     --jungle-red: #ff3e3e;
@@ -14,30 +14,37 @@
 
 * {
     box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
+    background-color: var(--jungle-black) !important; /* THE BLACKOUT FIX */
+    overflow-x: hidden;
+    height: 100%; /* REQUIRED FOR 100VH LOGIC */
 }
 
 body.jungle-theme {
-    background-color: var(--jungle-black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* FORCES BLACK TO THE BOTTOM */
     color: var(--text-main);
     font-family: var(--font-sans);
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal drift */
 }
 
 /* ========================================================================
-   STRUCTURE: THE 5-COLUMN GRID (DASHBOARD_MODE)
+   STRUCTURE: THE 5-COLUMN BLADE GRID
 ========================================================================= */
 .grid-content {
+    flex: 1 0 auto; /* STRETCHES CONTENT TO FILL VOID */
     max-width: 1600px;
-    margin: 100px auto 40px auto; /* Space for fixed nav */
+    margin: 80px auto 40px auto;
     padding: 0 20px;
 }
 
 .insights-grid {
     display: grid !important;
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: repeat(5, 1fr) !important; /* THE SQUARE-TO-RECTANGLE FIX */
     gap: 12px;
     align-items: start;
 }
@@ -77,7 +84,7 @@ body.jungle-theme {
 }
 
 /* ========================================================================
-   UI: DIRECTORY_DROPDOWN_LOGIC
+   UI: DIRECTORY_DROPDOWN
 ========================================================================= */
 .dropbtn {
     background: none;
@@ -146,14 +153,14 @@ body.jungle-theme {
 .insight-card h3 {
     color: var(--text-main);
     font-size: 0.9rem;
-    margin: 0;
+    margin: 0; /* NO VERTICAL WASTE */
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.2;
 }
 
 /* ========================================================================
-   LOG_REVEAL: PROGRESSIVE_DISCLOSURE
+   LOG_REVEAL: DISCLOSURE_ENGINE
 ========================================================================= */
 .insight-description {
     display: none;
@@ -193,4 +200,5 @@ body.jungle-theme {
     color: var(--text-dim);
     font-size: 0.75em;
     letter-spacing: 1px;
+    flex-shrink: 0; /* PREVENTS FOOTER CRUSH */
 }
