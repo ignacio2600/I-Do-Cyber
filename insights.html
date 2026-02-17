@@ -6,10 +6,62 @@
     <title>Jungle - Insights Archive</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 1. Protocol Banner Styling */
         .protocol-border {
             border-top: 1px solid #444;
             width: 100%;
             margin: 10px 0;
+        }
+
+        /* 2. Toggle Logic Styling */
+        .insight-description {
+            display: none; /* Hidden by default */
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #333;
+            line-height: 1.5;
+        }
+
+        /* When the 'active' class is added via JS, show the description */
+        .insight-card.active .insight-description {
+            display: block;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            color: #555;
+            text-decoration: none;
+            border: 1px solid #333;
+            padding: 5px 12px;
+            font-size: 0.75em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .read-more:hover {
+            background: #111;
+            color: #ff3e3e;
+            border-color: #ff3e3e;
+        }
+
+        /* Keep the grid cards uniform height when closed */
+        .insight-card {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border 0.3s ease;
+        }
+
+        .insight-card:hover {
+            border-color: #444;
         }
     </style>
 </head>
@@ -42,148 +94,186 @@
             <div class="protocol-border"></div>
         </div>
 
-        <div class="insights-grid" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+        <div class="insights-grid" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
             
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[001]</div>
-                <h3 style="color: #eee;">THE_BEZEL_RULE</h3>
-                <p style="color: #888; font-size: 0.9em;">Core philosophy: Remove anything that doesn't serve the operator's focus. Minimalist by necessity.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[001]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_BEZEL_RULE</h3>
+                    <div class="insight-description">Core philosophy: Remove anything that doesn't serve the operator's focus. Minimalist by necessity.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[002]</div>
-                <h3 style="color: #eee;">THE_HIDDEN_PATH</h3>
-                <p style="color: #888; font-size: 0.9em;">UX Audit: Adopting a "Minimalist-First" approach by condensing navigation into a directory.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[002]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_HIDDEN_PATH</h3>
+                    <div class="insight-description">UX Audit: Adopting a "Minimalist-First" approach by condensing navigation into a directory.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[003]</div>
-                <h3 style="color: #eee;">NESTED_ARCHITECTURE</h3>
-                <p style="color: #888; font-size: 0.9em;">Design Log: Moving from a "site" to a "system" as the Jungle scales into a multi-layered archive.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[003]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">NESTED_ARCHITECTURE</h3>
+                    <div class="insight-description">Design Log: Moving from a "site" to a "system" as the Jungle scales into a multi-layered archive.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[004]</div>
-                <h3 style="color: #eee;">HOVER_LOGIC</h3>
-                <p style="color: #888; font-size: 0.9em;">Strategy: Practicing Progressive Disclosure to keep the workspace clean and focused on data.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[004]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">HOVER_LOGIC</h3>
+                    <div class="insight-description">Strategy: Practicing Progressive Disclosure to keep the workspace clean and focused on data.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[005]</div>
-                <h3 style="color: #eee;">THE_STATIC_STAMP</h3>
-                <p style="color: #888; font-size: 0.9em;">The Kernel Ritual: The power of manual updates as a "Proof of Life" for the system status.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[005]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_STATIC_STAMP</h3>
+                    <div class="insight-description">The Kernel Ritual: The power of manual updates as a "Proof of Life" for the system status.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[006]</div>
-                <h3 style="color: #eee;">CHRONOLOGICAL_AUDIT</h3>
-                <p style="color: #888; font-size: 0.9em;">The Forensic Footer: Using high-precision timestamps to create a living, verifiable system log.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[006]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">CHRONOLOGICAL_AUDIT</h3>
+                    <div class="insight-description">The Forensic Footer: Using high-precision timestamps to create a living, verifiable system log.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[007]</div>
-                <h3 style="color: #eee;">THE_CDE_LEGACY</h3>
-                <p style="color: #888; font-size: 0.9em;">UX Philosophy: Returning to State Persistence and the stable workstations of the Solaris era.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[007]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_CDE_LEGACY</h3>
+                    <div class="insight-description">UX Philosophy: Returning to State Persistence and the stable workstations of the Solaris era.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[008]</div>
-                <h3 style="color: #eee;">INTENTIONAL_INTERFACE</h3>
-                <p style="color: #888; font-size: 0.9em;">The Solaris Handshake: Switching to Sticky Click to eliminate "sensitive hover" frustration.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[008]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">INTENTIONAL_INTERFACE</h3>
+                    <div class="insight-description">The Solaris Handshake: Switching to Sticky Click to eliminate "sensitive hover" frustration.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[009]</div>
-                <h3 style="color: #eee;">REFINING_CODEBASE</h3>
-                <p style="color: #888; font-size: 0.9em;">Maintenance: Moving from a menu that "runs away" to one that "stands its ground" during use.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[009]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">REFINING_CODEBASE</h3>
+                    <div class="insight-description">Maintenance: Moving from a menu that "runs away" to one that "stands its ground" during use.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[010]</div>
-                <h3 style="color: #eee;">THE_UNIFIED_SCRIPT</h3>
-                <p style="color: #888; font-size: 0.9em;">Developer Note: Unifying logic into a "Single Source of Truth" for easier debugging.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[010]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_UNIFIED_SCRIPT</h3>
+                    <div class="insight-description">Developer Note: Unifying logic into a "Single Source of Truth" for easier debugging.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[011]</div>
-                <h3 style="color: #eee;">COMMAND_CENTER_BRAIN</h3>
-                <p style="color: #888; font-size: 0.9em;">Developer Log: Centralizing the nervous system while keeping dependencies extremely light.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[011]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">COMMAND_CENTER_BRAIN</h3>
+                    <div class="insight-description">Developer Log: Centralizing the nervous system while keeping dependencies extremely light.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[012]</div>
-                <h3 style="color: #eee;">SYSTEM_MIRRORING</h3>
-                <p style="color: #888; font-size: 0.9em;">The Parity Principle: Ensuring user "Muscle Memory" works flawlessly across every Jungle page.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[012]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">SYSTEM_MIRRORING</h3>
+                    <div class="insight-description">The Parity Principle: Ensuring user "Muscle Memory" works flawlessly across every Jungle page.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[013]</div>
-                <h3 style="color: #eee;">LEAN_LOGIC</h3>
-                <p style="color: #888; font-size: 0.9em;">Archive Audit: Using only the resources needed for the task at hand to ensure performance.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[013]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">LEAN_LOGIC</h3>
+                    <div class="insight-description">Archive Audit: Using only the resources needed for the task at hand to ensure performance.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[014]</div>
-                <h3 style="color: #eee;">THE_SILENT_OPERATOR</h3>
-                <p style="color: #888; font-size: 0.9em;">Log Entry: Tailoring scripts to specific page needs—knowing what to leave out is vital.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[014]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_SILENT_OPERATOR</h3>
+                    <div class="insight-description">Log Entry: Tailoring scripts to specific page needs—knowing what to leave out is vital.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[015]</div>
-                <h3 style="color: #eee;">THE_CLOSED_LOOP</h3>
-                <p style="color: #888; font-size: 0.9em;">The Final Bracket: Ensuring navigation logic doesn't leak into or degrade page performance.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[015]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_CLOSED_LOOP</h3>
+                    <div class="insight-description">The Final Bracket: Ensuring navigation logic doesn't leak into or degrade page performance.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[016]</div>
-                <h3 style="color: #eee;">THE_CLEAN_EXIT</h3>
-                <p style="color: #888; font-size: 0.9em;">Syntax Discipline: Leaving no loose ends for the browser to trip over during render.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[016]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_CLEAN_EXIT</h3>
+                    <div class="insight-description">Syntax Discipline: Leaving no loose ends for the browser to trip over during render.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[017]</div>
-                <h3 style="color: #eee;">SYNTAX_HARDENING</h3>
-                <p style="color: #888; font-size: 0.9em;">The Final Commit: Ensuring a clear, unambiguous end-point for the entire site's data stream.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[017]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">SYNTAX_HARDENING</h3>
+                    <div class="insight-description">The Final Commit: Ensuring a clear, unambiguous end-point for the entire site's data stream.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[018]</div>
-                <h3 style="color: #eee;">THE_OVERRIDE</h3>
-                <p style="color: #888; font-size: 0.9em;">Operator Note: Using absolute authority in CSS to bridge the gap between logic and visuals.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[018]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_OVERRIDE</h3>
+                    <div class="insight-description">Operator Note: Using absolute authority in CSS to bridge the gap between logic and visuals.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[019]</div>
-                <h3 style="color: #eee;">SCALING_THE_ARCHIVE</h3>
-                <p style="color: #888; font-size: 0.9em;">Librarian's Method: A modular grid allows the Jungle's intelligence to scale indefinitely.</p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">READ_LOG</a>
+            <div class="insight-card">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[019]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">SCALING_THE_ARCHIVE</h3>
+                    <div class="insight-description">Librarian's Method: A modular grid allows the Jungle's intelligence to scale indefinitely.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
-            <div class="insight-card" style="background: #0a0a0a; border: 1px solid #333; padding: 20px; border-left: 2px solid #ff3e3e;">
-                <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[020]</div>
-                <h3 style="color: #eee;">THE_DATA_HARVEST</h3>
-                <p style="color: #888; font-size: 0.9em; font-style: italic;">
-                    The Archive is fully populated. We’ve indexed 20 points of evolution, ensuring every design choice is backed by a verifiable log entry.
-                </p>
-                <a href="#" style="color: #555; text-decoration: none; border: 1px solid #333; padding: 5px 10px; font-size: 0.8em;">SYSTEM_SYNC</a>
+            <div class="insight-card" style="border-left: 2px solid #ff3e3e;">
+                <div>
+                    <div class="card-header" style="color: #ff3e3e; font-size: 0.8em;">[020]</div>
+                    <h3 style="color: #eee; margin: 5px 0;">THE_DATA_HARVEST</h3>
+                    <div class="insight-description">The Archive is fully populated. We’ve indexed 20 points of evolution, ensuring every design choice is backed by a verifiable log entry.</div>
+                </div>
+                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
             </div>
 
         </div>
@@ -195,7 +285,21 @@
     </footer>
 
     <script>
+        // 1. DIRECTORY DROPDOWN
         function toggleMenu() { document.getElementById("myDropdown").classList.toggle("show"); }
+
+        // 2. TOGGLE LOG LOGIC
+        function toggleLog(button) {
+            const card = button.closest('.insight-card');
+            card.classList.toggle('active');
+            
+            if (card.classList.contains('active')) {
+                button.innerText = "CLOSE_LOG";
+            } else {
+                button.innerText = "READ_LOG";
+            }
+        }
+
         window.onclick = function(event) {
           if (!event.target.matches('.dropbtn')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
