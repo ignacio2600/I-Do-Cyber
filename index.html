@@ -126,20 +126,26 @@
         setInterval(updateQuote, 180000);
         // Start first quote
         updateQuote();
+// --- 2. UPDATED COPY-TO-CLIPBOARD LOGIC ---
+document.querySelectorAll('.copyable').forEach(item => {
+    item.addEventListener('click', function(e) {
+        const destination = this.getAttribute('href');
 
-        // --- 2. COPY-TO-CLIPBOARD LOGIC ---
-        document.querySelectorAll('.copyable').forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === "#") {
-                    e.preventDefault();
-                    navigator.clipboard.writeText(this.innerText).then(() => {
-                        const originalText = this.innerText;
-                        this.innerText = "COPIED!";
-                        setTimeout(() => { this.innerText = originalText; }, 800);
-                    });
-                }
+        // Check if it's a real link or just a placeholder
+        if (destination === "#" || destination === "" || !destination) {
+            e.preventDefault(); // Stop the page from jumping
+            
+            navigator.clipboard.writeText(this.innerText).then(() => {
+                const originalText = this.innerText;
+                this.innerText = "COPIED!";
+                setTimeout(() => { this.innerText = originalText; }, 800);
             });
-        });
+        } 
+        // If destination is a real page (like google-dorking.html), 
+        // the script does nothing and the browser just opens the link!
+    });
+});
+       
     </script>
 </body>
 </html>
