@@ -100,10 +100,10 @@ li a:hover {
     text-decoration: underline; 
 }
 
-/* --- 5. FOOTER (With Breathing Room) --- */
+/* --- 5. FOOTER --- */
 .jungle-footer { 
     text-align: center; 
-    padding: 60px 20px; /* Increased padding for breathing room */
+    padding: 80px 20px; /* Maximum breathing room */
     font-size: 0.75em; 
     color: #444; 
 }
