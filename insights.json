@@ -1,0 +1,22 @@
+[
+  { "id": "001", "title": "THE_BEZEL_RULE", "log": "Core philosophy: Remove anything that doesn't serve the operator's focus. Minimalist by necessity." },
+  { "id": "002", "title": "THE_HIDDEN_PATH", "log": "UX Audit: Adopting a \"Minimalist-First\" approach by condensing navigation into a directory." },
+  { "id": "003", "title": "NESTED_ARCHITECTURE", "log": "Design Log: Moving from a \"site\" to a \"system\" as the Jungle scales into a multi-layered archive." },
+  { "id": "004", "title": "HOVER_LOGIC", "log": "Strategy: Practicing Progressive Disclosure to keep the workspace clean and focused on data." },
+  { "id": "005", "title": "THE_STATIC_STAMP", "log": "The Kernel Ritual: The power of manual updates as a \"Proof of Life\" for the system status." },
+  { "id": "006", "title": "CHRONOLOGICAL_AUDIT", "log": "The Forensic Footer: Using high-precision timestamps to create a living, verifiable system log." },
+  { "id": "007", "title": "THE_CDE_LEGACY", "log": "UX Philosophy: Returning to State Persistence and the stable workstations of the Solaris era." },
+  { "id": "008", "title": "INTENTIONAL_INTERFACE", "log": "The Solaris Handshake: Switching to Sticky Click to eliminate \"sensitive hover\" frustration." },
+  { "id": "009", "title": "REFINING_CODEBASE", "log": "Maintenance: Moving from a menu that \"runs away\" to one that \"stands its ground\" during use." },
+  { "id": "010", "title": "THE_UNIFIED_SCRIPT", "log": "Developer Note: Unifying logic into a \"Single Source of Truth\" for easier debugging." },
+  { "id": "011", "title": "COMMAND_CENTER_BRAIN", "log": "Developer Log: Centralizing the nervous system while keeping dependencies extremely light." },
+  { "id": "012", "title": "SYSTEM_MIRRORING", "log": "The Parity Principle: Ensuring user \"Muscle Memory\" works flawlessly across every Jungle page." },
+  { "id": "013", "title": "LEAN_LOGIC", "log": "Archive Audit: Using only the resources needed for the task at hand to ensure performance." },
+  { "id": "014", "title": "THE_SILENT_OPERATOR", "log": "Log Entry: Tailoring scripts to specific page needs—knowing what to leave out is vital." },
+  { "id": "015", "title": "THE_CLOSED_LOOP", "log": "The Final Bracket: Ensuring navigation logic doesn't leak into or degrade page performance." },
+  { "id": "016", "title": "THE_CLEAN_EXIT", "log": "Syntax Discipline: Leaving no loose ends for the browser to trip over during render." },
+  { "id": "017", "title": "SYNTAX_HARDENING", "log": "The Final Commit: Ensuring a clear, unambiguous end-point for the entire site's data stream." },
+  { "id": "018", "title": "THE_OVERRIDE", "log": "Operator Note: Using absolute authority in CSS to bridge the gap between logic and visuals." },
+  { "id": "019", "title": "SCALING_THE_ARCHIVE", "log": "Librarian's Method: A modular grid allows the Jungle's intelligence to scale indefinitely." },
+  { "id": "020", "title": "THE_DATA_HARVEST", "log": "The Archive is fully populated. We’ve indexed 20 points of evolution, ensuring every design choice is backed by a verifiable log entry." }
+]
