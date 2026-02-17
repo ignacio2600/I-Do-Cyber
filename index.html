@@ -237,6 +237,7 @@
     </footer>
 
     <script>
+        /* --- 1. THE TYPEWRITER LOGIC --- */
         const quotes = [
             "WELCOME TO THE JUNGLE", "HACK THE PLANET", "STAY PARANOID",
             "INFORMATION WANTS TO BE FREE", "ROOT@JUNGLE:~#", 
@@ -263,6 +264,7 @@
         setInterval(updateQuote, 180000);
         updateQuote();
 
+        /* --- 2. THE CLIPBOARD LOGIC --- */
         document.querySelectorAll('.copyable').forEach(item => {
             item.addEventListener('click', function(e) {
                 const destination = this.getAttribute('href');
@@ -276,6 +278,24 @@
                 }
             });
         });
+
+        /* --- 3. THE STICKY DIRECTORY LOGIC (CDE STYLE) --- */
+        function toggleMenu() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Closes the menu if you click anywhere else on the page
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
     </script>
 </body>
 </html>
