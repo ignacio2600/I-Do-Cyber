@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Bug Bounty Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0c0f;
+      --surface: #111318;
+      --border: #1e2330;
+      --accent: #00ff9d;
+      --accent2: #00c8ff;
+      --text: #c8d0e0;
+      --muted: #4a5568;
+      --heading: #eef2ff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid noise background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,157,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,157,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glowing orb */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(0,255,157,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* — NAV BAR PLACEHOLDER — */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 56px;
+      background: rgba(10,12,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--accent);
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent); }
+
+    /* — HERO — */
+    .hero {
+      margin-top: 56px;
+      padding-top: 80px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: 1px solid rgba(0,255,157,0.3);
+      padding: 4px 12px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 span {
+      color: var(--accent);
+      position: relative;
+    }
+
+    .subtitle {
+      margin-top: 24px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text);
+      max-width: 580px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* — DIVIDER — */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 64px 0 48px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider span {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* — SECTIONS — */
+    .section {
+      margin-bottom: 56px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--accent2);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    /* — TOPIC GRID — */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+      animation: fadeUp 0.6s 0.5s ease both;
+    }
+
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 20px 18px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .topic-card:hover {
+      border-color: rgba(0,255,157,0.4);
+      transform: translateY(-3px);
+    }
+
+    .topic-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .topic-card:hover::before { opacity: 1; }
+
+    .topic-icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .topic-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .topic-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* — MISSION BANNER — */
+    .mission {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 28px 32px;
+      margin: 64px 0;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+
+    .mission p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .mission .author {
+      margin-top: 12px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+
+    /* — FOOTER — */
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.6s 0.7s ease both;
+    }
+
+    footer p {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 6px;
+      box-shadow: 0 0 6px var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    /* — ANIMATIONS — */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* Stagger section animations */
+    .section:nth-child(1) { animation-delay: 0.35s; }
+    .section:nth-child(2) { animation-delay: 0.45s; }
+    .section:nth-child(3) { animation-delay: 0.55s; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">// BUG_BOUNTY_JOURNEY</span>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">About</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <div class="hero">
+      <div class="tag">About This Site</div>
+      <h1>Learning in<br><span>Public.</span></h1>
+      <p class="subtitle">
+        This is a living record of a journey into cybersecurity — from the very first command to submitting real bug bounty reports. No gatekeeping, no polished highlights reel. Just the grind, the wins, and everything in between.
+      </p>
+    </div>
+
+    <div class="divider"><span>What This Site Is About</span></div>
+
+    <div class="section">
+      <div class="section-label">// The Mission</div>
+      <h2>Breaking Things to Understand Them</h2>
+      <p>
+        Bug bounty hunting is the art of legally finding security vulnerabilities in real-world applications and getting paid for it. But before you can break things responsibly, you have to understand how they're built. This site exists to document that learning process — from foundational concepts to hands-on hacking practice — and share everything discovered along the way.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">// The Approach</div>
+      <h2>One Concept at a Time</h2>
+      <p>
+        Cybersecurity is a massive field, and trying to learn all of it at once leads nowhere fast. The approach here is deliberate and sequential: build a solid base in networking and web development, layer on security fundamentals, and steadily work toward real vulnerability research. Progress over perfection, always.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section-label">// The Topics</div>
+      <h2>What You'll Find Here</h2>
+    </div>
+
+    <div class="topic-grid">
+      <div class="topic-card">
+        <div class="topic-icon">🐛</div>
+        <div class="topic-title">Bug Bounty Hunting</div>
+        <div class="topic-desc">Recon techniques, vulnerability classes, write-ups, and platform tips for HackerOne, Bugcrowd & more.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🔐</div>
+        <div class="topic-title">Web Security</div>
+        <div class="topic-desc">XSS, SQL injection, CSRF, IDOR, and the OWASP Top 10 — explained from scratch and through practice.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🌐</div>
+        <div class="topic-title">Networking</div>
+        <div class="topic-desc">TCP/IP, DNS, HTTP/HTTPS, firewalls, and the protocols that underpin everything on the internet.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">💻</div>
+        <div class="topic-title">Web Development</div>
+        <div class="topic-desc">HTML, CSS, JavaScript, and backend basics — because understanding how apps are built helps find where they break.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">
+          <!-- Puffy the OpenBSD fish SVG -->
+          <svg width="38" height="38" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            <ellipse cx="38" cy="42" rx="26" ry="20" fill="#f4a836"/>
+            <!-- Puffer spines top -->
+            <line x1="24" y1="22" x2="20" y2="12" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="19" x2="30" y2="8" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="40" y1="18" x2="40" y2="7" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="48" y1="19" x2="50" y2="8" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="55" y1="23" x2="60" y2="13" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <!-- Puffer spines bottom -->
+            <line x1="24" y1="60" x2="20" y2="70" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="32" y1="63" x2="30" y2="73" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="40" y1="64" x2="40" y2="75" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="48" y1="63" x2="50" y2="73" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <line x1="55" y1="60" x2="60" y2="70" stroke="#f4a836" stroke-width="3" stroke-linecap="round"/>
+            <!-- Belly -->
+            <ellipse cx="38" cy="45" rx="16" ry="11" fill="#fde5b0"/>
+            <!-- Tail -->
+            <path d="M64 42 Q78 30 76 42 Q78 54 64 42Z" fill="#e08c20"/>
+            <!-- Eye -->
+            <circle cx="25" cy="38" r="5" fill="white"/>
+            <circle cx="24" cy="37" r="2.5" fill="#1a1a2e"/>
+            <circle cx="23.2" cy="36.2" r="0.9" fill="white"/>
+            <!-- Mouth -->
+            <path d="M16 44 Q18 48 22 46" stroke="#c0621a" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- Fin top -->
+            <path d="M35 22 Q42 14 48 22" stroke="#e08c20" stroke-width="2.5" fill="#f4a836" fill-opacity="0.6"/>
+            <!-- Fin side -->
+            <path d="M48 46 Q58 40 58 50 Q52 54 48 50Z" fill="#e08c20" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="topic-title">Unix & Command Line</div>
+        <div class="topic-desc">Shell scripting, file systems, permissions, and tools like Bash that every security researcher relies on.</div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-icon">🛠️</div>
+        <div class="topic-title">Tools & Labs</div>
+        <div class="topic-desc">Burp Suite, Nmap, Gobuster, TryHackMe, HackTheBox — walkthroughs and notes from hands-on practice.</div>
+      </div>
+    </div>
+
+    <div class="mission">
+      <p>
+        "The best security researchers aren't the ones who know everything — they're the ones who never stop being curious. This site is a commitment to staying curious, staying consistent, and sharing every step of the way."
+      </p>
+      <div class="author">— The Mission</div>
+    </div>
+
+    <footer>
+      <p><span class="status-dot"></span>Actively learning & updating</p>
+      <p>Built on GitHub Pages &nbsp;·&nbsp; Always a work in progress</p>
+    </footer>
+
+  </div>
+</body>
+</html>
