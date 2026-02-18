@@ -3,69 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jungle - Insights</title>
+    <title>Jungle_Archive | Library Cards</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="jungle-theme">
+<body>
 
     <nav class="top-nav">
-        <div class="nav-left">
+       <div class="nav-left">
             <div class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn" onclick="toggleMenu()">directory ▾</a>
-                <div id="myDropdown" class="dropdown-content">
+                <a href="#" class="dropbtn">directory ▾</a>
+                <div class="dropdown-content">
                     <a href="index.html">jungle (roadmap)</a>
                     <a href="insights.html">insights (archive)</a>
                     <a href="about.html">about (operator)</a>
+                    <a href="https://github.com/MyCyberNotes/I-Do-Cyber/discussions" target="_blank">community</a>
                 </div>
             </div>
         </div>
-        <div class="nav-center">SYSTEM_INSIGHTS</div>
-        <div class="nav-right">
-            <input type="text" placeholder="search_archive..." class="nav-search">
-        </div>
+        <div class="nav-center">KNOWLEDGE_ARCHIVE</div>
+        <div class="nav-right">SYSTEM: STABLE</div>
     </nav>
 
-    <main class="grid-content">
-        <div class="security-posture">
-            <p>[POSTURE: ARCHIVAL_ACCESS] — The Insights Archive. Recorded logs of system development and operator notes.</p>
+    <main class="card-catalog">
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">01</span>
+                <span class="category">DESIGN_LOGIC</span>
+            </div>
+            <h3>The Bezel Rule</h3>
+            <p>Visual symmetry is the hallmark of professional hardware. In the Jungle, we replicate the ThinkPad's physical balance. Every element on the left must have a counter-weight on the right.</p>
+            <div class="punch-hole"></div>
         </div>
 
-        <h1 class="phase-header">[SECTION: LOG_ARCHIVE]</h1>
-
-        <div class="insights-grid">
-            
-            <div class="insight-card">
-                <div class="card-header">[LOG_001]</div>
-                <h3>SYSTEM_ARCHITECTURE</h3>
-                <div class="insight-description">Deep dive into the 5-column grid and the CSS blackout protocol.</div>
-                <div class="read-more" onclick="toggleLog(this)">READ_LOG</div>
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">02</span>
+                <span class="category">UX_UI</span>
             </div>
+            <h3>The Copy-Paste Trap</h3>
+            <p>Convenience shouldn't break core function. If a script captures every click to copy text, it effectively kills the ability to travel to new pages. True power lies in selective automation.</p>
+            <div class="punch-hole"></div>
+        </div>
 
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">03</span>
+                <span class="category">COLOR_THEORY</span>
             </div>
+            <h3>GitHub Blue</h3>
+            <p>High-saturation colors cause eye strain. Using #58a6ff signals a professional environment. It is the "native" color of the developer, built for long night-shift sessions.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">04</span>
+                <span class="category">ARCHITECTURE</span>
+            </div>
+            <h3>The Narrative Flow</h3>
+            <p>Information architecture is storytelling. Order topics from "Student" to "Business Owner" to create a psychological sense of progress. Logic must always precede the sale.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">05</span>
+                <span class="category">PSYCHOLOGY</span>
+            </div>
+            <h3>The Cursor Silence</h3>
+            <p>A blinking cursor is an active request. Removing it once the typing is finished gives the user "permission" to stop reading and start acting. It is the visual equivalent of a period.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">06</span>
+                <span class="category">PHILOSOPHY</span>
+            </div>
+            <h3>The Unix Pivot</h3>
+            <p>Technical choices define the project's soul. Choosing "Unix" over "Linux" respects the ancestry of OpenBSD. It signals a "Security by Default" mindset that the masses overlook.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">07</span>
+                <span class="category">GEOMETRY</span>
+            </div>
+            <h3>The Grid Void</h3>
+            <p>Symmetry is a visual promise to the user. An incomplete grid feels broken. Always finish the row (the Power of 20) to maintain the "Command Center" authority.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">08</span>
+                <span class="category">NAVIGATION</span>
+            </div>
+            <h3>Intent Mapping</h3>
+            <p>Distinguish between "Snippet Links" (for tools) and "Destination Links" (for knowledge). Never force a user to choose between copying and navigating. The path must be clear.</p>
+            <div class="punch-hole"></div>
+        </div>
+
+        <div class="library-card">
+            <div class="card-header">
+                <span class="index-number">09</span>
+                <span class="category">HUMAN_HARDWARE</span>
+            </div>
+            <h3>The Sleep Cycle</h3>
+            <p>Just like a server needs a reboot to clear its cache, the human brain requires "Offline Mode" to commit skills to memory. Hacking is 50% typing and 50% resting.</p>
+            <div class="punch-hole"></div>
+        </div>
     </main>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
+    <footer class="jungle-footer">
+        <div class="divider">========================================================================</div>
+        <p>TOTAL_CARDS: 09 | ARCHIVE_STATE: READ_ONLY | KERNEL: OPENBSD 7.8</p>
+    </footer>
 
-        function toggleLog(button) {
-            const card = button.closest('.insight-card');
-            card.classList.toggle('active');
-            button.innerText = card.classList.contains('active') ? "CLOSE_LOG" : "READ_LOG";
-        }
-
-        window.onclick = function(event) {
-          if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-              var openDropdown = dropdowns[i];
-              if (openDropdown.classList.contains('show')) { 
-                  openDropdown.classList.remove('show'); 
-              }
-            }
-          }
-        }
-    </script>
 </body>
 </html>
