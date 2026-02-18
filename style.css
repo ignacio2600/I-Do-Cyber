@@ -2,11 +2,10 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #0a0a0a; 
-    overflow-x: hidden; 
+    background-color: #0a0a0a;
+    overflow-x: hidden;
     min-height: 100vh;
 }
-
 body {
     display: flex;
     flex-direction: column;
@@ -15,125 +14,137 @@ body {
 }
 
 /* --- 2. TOP NAVIGATION --- */
-.top-nav { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 10px 20px; 
-    background-color: #1a1a1a; 
-    border-bottom: 1px solid #333; 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-
 .nav-left, .nav-right { flex: 1; font-size: 0.85em; color: #888; }
 .nav-left a { color: #888; text-decoration: none; transition: 0.3s; }
 .nav-left a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); }
-
-.nav-center { 
-    flex: 2; 
-    text-align: center; 
-    font-weight: bold; 
-    letter-spacing: 2px; 
-    color: #ffffff; 
+.nav-center {
+    flex: 2;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #ffffff;
 }
-
-.nav-search { 
-    background: #000; 
-    border: 1px solid #444; 
-    color: #58a6ff; 
-    padding: 5px 10px; 
-    outline: none; 
-    width: 100%; 
-    max-width: 200px; 
+.nav-search {
+    background: #000;
+    border: 1px solid #444;
+    color: #58a6ff;
+    padding: 5px 10px;
+    outline: none;
+    width: 100%;
+    max-width: 200px;
     float: right;
     font-family: inherit;
 }
+
 /* --- 2b. STICKY DROPDOWN --- */
-.dropdown { position: relative; display: inline-block; }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropbtn {
+    cursor: pointer;
+    user-select: none;
+    color: #888;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.dropbtn:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
     background-color: #1a1a1a;
     border: 1px solid #333;
-    min-width: 180px;
-    z-index: 999;
+    min-width: 200px;
+    z-index: 9999;
     padding: 5px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 }
 .dropdown-content a {
     display: block;
-    padding: 8px 15px;
+    padding: 9px 16px;
     color: #888;
     text-decoration: none;
     font-size: 0.85em;
+    letter-spacing: 0.5px;
     transition: 0.2s;
+    border-left: 2px solid transparent;
 }
 .dropdown-content a:hover {
     color: #ffffff;
     background-color: #111;
+    border-left: 2px solid #58a6ff;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
-.dropdown-content.open { display: block; }
-.dropbtn { cursor: pointer; }
+.dropdown-content.open {
+    display: block;
+}
 
 /* --- 3. THE ROADMAP GRID --- */
-.grid-content { 
-    flex-grow: 1; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 30px; 
-    padding: 40px 20px; 
-    max-width: 1600px; 
-    margin: 0 auto; 
+.grid-content {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1600px;
+    margin: 0 auto;
     width: 100%;
 }
-
-.cl-column { 
-    background: #080808; 
-    border: 1px solid #1a1a1a; 
-    padding: 15px; 
-    border-radius: 4px; 
+.cl-column {
+    background: #080808;
+    border: 1px solid #1a1a1a;
+    padding: 15px;
+    border-radius: 4px;
 }
-
-.cl-column h2 { 
-    font-size: 0.95em; 
-    text-transform: lowercase; 
-    border-bottom: 1px solid #333; 
-    padding-bottom: 5px; 
-    margin-bottom: 10px; 
-    color: #888; 
+.cl-column h2 {
+    font-size: 0.95em;
+    text-transform: lowercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #888;
 }
 
 /* --- 4. THE SCROLLING LISTS --- */
-ul { list-style: none; max-height: 150px; overflow-y: auto; padding-right: 5px; }
-
+ul { list-style: none; max-height: 150px; overflow-y: auto; padding-right: 5px; margin: 0; padding-left: 0; }
 ul::-webkit-scrollbar { width: 4px; }
 ul::-webkit-scrollbar-track { background: #050505; }
 ul::-webkit-scrollbar-thumb { background: #222; }
 ul::-webkit-scrollbar-thumb:hover { background: #58a6ff; }
-
 li { margin-bottom: 8px; }
-li a { 
-    text-decoration: none; 
-    color: #58a6ff; 
-    font-size: 0.9em; 
-    transition: 0.2s; 
+li a {
+    text-decoration: none;
+    color: #58a6ff;
+    font-size: 0.9em;
+    transition: 0.2s;
 }
-
-li a:hover { 
-    color: #ffffff !important; 
-    text-decoration: underline; 
+li a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
 }
 
 /* --- 5. FOOTER --- */
-.jungle-footer { 
-    text-align: center; 
-    padding: 80px 20px; /* Maximum breathing room */
-    font-size: 0.75em; 
-    color: #444; 
+.jungle-footer {
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 0.75em;
+    color: #444;
 }
 .divider { margin-bottom: 15px; letter-spacing: 1px; color: #222; }
 
@@ -151,25 +162,22 @@ li a:hover {
     max-width: 1400px;
     margin: 0 auto;
 }
-
 .library-card {
-    background-color: #0f0f0f; /* Slightly lighter than body for depth */
+    background-color: #0f0f0f;
     border: 1px solid #222;
     width: 320px;
     height: 220px;
     padding: 20px;
     position: relative;
-    box-shadow: 4px 4px 0px #58a6ff; /* GitHub Blue shadow */
+    box-shadow: 4px 4px 0px #58a6ff;
     transition: transform 0.2s;
     display: flex;
     flex-direction: column;
 }
-
 .library-card:hover {
     transform: translateY(-5px);
     border-color: #58a6ff;
 }
-
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -180,25 +188,22 @@ li a:hover {
     margin-bottom: 15px;
     letter-spacing: 1px;
 }
-
 .library-card h3 {
     font-size: 1em;
     color: #ffffff;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
-
 .library-card p {
     font-size: 0.8em;
     color: #aaa;
     line-height: 1.5;
     flex-grow: 1;
 }
-
 .punch-hole {
     width: 16px;
     height: 16px;
-    background-color: #0a0a0a; /* Matches the main body background */
+    background-color: #0a0a0a;
     border: 1px solid #333;
     border-radius: 50%;
     margin: 0 auto;
